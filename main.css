@@ -76,6 +76,7 @@ header>h1{
 }
 .choice:hover{
     cursor: pointer;
+    transform: scale(1.1);
 }
 #massage{
     text-align: center;
