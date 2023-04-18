@@ -4,9 +4,9 @@ const userScore_span = document.getElementById("user-score");
 const compScore_span = document.getElementById("user-comp");
 const scoreBord_div = document.querySelector(".score-bord");
 const result_div = document.querySelector(".result>p");
-const rock_div = document.getElementById("rock");
-const paper_div = document.getElementById("paper");
-const scis_div = document.getElementById("sci");
+const rock_div = document.getElementById("r");
+const paper_div = document.getElementById("p");
+const scis_div = document.getElementById("s");
 
 function getcompChoice() {
     const choices = ['r', 'p', 's'];
@@ -35,7 +35,7 @@ function win(user,comp) {
     userElement.classList.add('green-glow');
     setTimeout(function () {
       userElement.classList.remove('green-glow');
-    }, 500);
+    }, 800);
   
 }
 function lose(user,comp) {
@@ -45,11 +45,21 @@ function lose(user,comp) {
     const smallUserWord = " (user) ".fontsize(3).sub();
     const smallCompWord = " (computer) ".fontsize(3).sub();
     result_div.innerHTML = `${convert(user)}${smallUserWord}   Loses to  ${convert(comp)}${smallCompWord}  , You Lost! 💀`
+    const userElement = document.getElementById(user);
+    userElement.classList.add('red-glow');
+    setTimeout(function () {
+      userElement.classList.remove('red-glow');
+    }, 800);
 }
 function draw(user,comp) {
     const smallUserWord = " (user) ".fontsize(3).sub();
     const smallCompWord = " (computer) ".fontsize(3).sub();
     result_div.innerHTML = `${convert(user)}${smallUserWord}   Equals  ${convert(comp)}${smallCompWord}  , You equal! 😬`
+    const userElement = document.getElementById(user);
+    userElement.classList.add('blue-glow');
+    setTimeout(function () {
+      userElement.classList.remove('blue-glow');
+    }, 800);
 }
 function Game(userchoice) {
     const compchoice = getcompChoice();
